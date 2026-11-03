@@ -17,8 +17,9 @@
     "server.ts",
     "routes",
     "controllers",
-    "models",
+    "db",
     "generated",
-    "prisma7.config.ts"
-  ]
+    "prisma.config.ts"
+  ],
+  "exclude": ["client", "dist"]
 }

@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { prisma } from "../models/db.ts";
+import { prisma } from "../db/prisma.ts";
 
 export const status = (req: Request, res: Response) => {
   res.json({ status: "runing" });

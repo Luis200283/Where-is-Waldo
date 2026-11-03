@@ -4,10 +4,14 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx watch server.ts",
-    "start": "node server.ts",
-    "typecheck": "tsc --noEmit"
+    "dev": "concurrently -k -n api,web -c blue,green \"pnpm dev:api\" \"pnpm dev:web\"",
+    "dev:api": "tsx watch server.ts",
+    "dev:web": "pnpm -C client dev",
+    "db:generate": "prisma generate",
+    "build": "pnpm db:generate && pnpm -C client build",
+    "start": "NODE_ENV=production node server.ts",
+    "serve": "pnpm build && pnpm start",
+    "typecheck": "tsc --noEmit && pnpm -C client exec tsc -b"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +28,7 @@
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^26.6.5",
+    "concurrently": "^10.0.6",
     "prisma": "^7.10.1",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2"
