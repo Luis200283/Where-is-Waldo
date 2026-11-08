@@ -12,7 +12,7 @@ datasource db {
 model Score {
   id        String   @id @default(cuid())
   name      String   @db.VarChar(20)
-  timeMs    Int
+  timeMs    String
   createdAt DateTime @default(now())
 
   @@index([timeMs])
