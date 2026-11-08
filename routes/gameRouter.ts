@@ -3,7 +3,7 @@ import {
   playLevel,
   getPlayerScore,
   newPlayerScore,
-} from "../controllers/gameControllers";
+} from "../controllers/gameControllers.ts";
 
 export const gameRouter = Router();
 

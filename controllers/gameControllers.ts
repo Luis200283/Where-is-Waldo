@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
-import levels from "./charactes.json";
-import { prisma } from "../db/prisma";
+import levels from "./charactes.json" with { type: "json" };
+import { prisma } from "../db/prisma.ts";
 
 type chars = {
   x: number[];
